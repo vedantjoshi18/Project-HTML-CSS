@@ -1,0 +1,101 @@
+/* Custom CSS for Thematic Branding */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #FDF8F2; /* Creamy background */
+    color: #4A4A4A; /* Dark Gray text */
+    padding-top: 88px; /* Offset for fixed header */
+}
+
+h1, h2, h3, .nav-link {
+    font-family: 'Playfair Display', serif;
+}
+
+/* --- Custom Colors --- */
+.bg-primary { background-color: #B98C5A; } /* Golden Brown */
+.bg-secondary { background-color: #2C3E50; } /* Deep Blue/Charcoal */
+.bg-accent { background-color: #EAE0D5; } /* Light Tan */
+.text-primary { color: #B98C5A; }
+.text-secondary { color: #2C3E50; }
+.border-primary { border-color: #B98C5A; }
+
+/* --- Header & Navigation --- */
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #B98C5A;
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* --- Hero Section --- */
+.hero {
+    /* UPDATE THIS LINE with your image path */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect */
+}
+
+/* --- Section Titles --- */
+.section-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background-color: #B98C5A;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* --- Menu Section --- */
+.menu-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+.menu-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+.menu-card img {
+    transition: transform 0.4s ease;
+}
+.menu-card:hover img {
+    transform: scale(1.1);
+}
+
+/* --- Button Style --- */
+.btn-primary {
+    background-color: #B98C5A;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn-primary:hover {
+    background-color: #a57c4f;
+    transform: translateY(-2px);
+}
+
+/* --- Footer --- */
+.social-icon {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.social-icon:hover {
+    color: #B98C5A;
+    transform: scale(1.2);
+}
