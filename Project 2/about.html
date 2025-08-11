@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Innovatec Collective</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+   <!-- Drop this right after <body> tag -->
+<div class="floating-blob blob1"></div>
+<div class="floating-blob blob2"></div>
+<div class="floating-blob blob3"></div>
+
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="nav-logo">Innovatec</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link active">About</a></li>
+                <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" class="btn">Light Mode</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h2 class="reveal">Meet The Team</h2>
+
+            <article class="about-member reveal">
+  <h3>Vedant Joshi – Developer & E-Sports Strategist</h3>
+  <p>Vedant blends technical precision with competitive flair. With hands-on experience in HTML and Python programming, he brings logic and creativity to everything he builds. Beyond the code, he's a celebrated E-Sportsman and currently serves as the Head of E-Sports at Christ University, Kengeri—leading high-stakes tournaments and community-driven gaming culture.</p>
+  <h4>Skills:</h4>
+  <ul class="skills-list">
+    <li>HTML5 & CSS3</li>
+    <li>Python Programming</li>
+    <li>Game Strategy & Team Management</li>
+    <li>Leadership in E-Sports Communities</li>
+    <li>Event Organization & Commentary</li>
+  </ul>
+</article>
+
+
+            <article class="about-member reveal">
+  <h3>Samuel Biju – Programmer & Tenor Virtuoso</h3>
+  <p>Samuel’s logic flows like a well-designed circuit—precise, orderly, and powerful. With solid experience in HTML, Python, and C programming, he sees systems from the inside out, approaching challenges like a processor executing instructions in harmony. But his intellect extends far beyond code: a seasoned instrumentalist and trained tenor, Samuel is a cornerstone of the Christ University, Kengeri choir. He possesses strong relative pitch and musical insight, having completed Trinity Grade 7 in Electronic Keyboard. His voice and understanding of music theory make him a unique fusion of mathematical clarity and artistic resonance.</p>
+  <h4>Skills:</h4>
+  <ul class="skills-list">
+    <li>HTML, Python & C Programming</li>
+    <li>Algorithmic Thinking & Systems Logic</li>
+    <li>Tenor Singing & Choral Arrangement</li>
+    <li>Electronic Keyboard (Trinity Grade 7)</li>
+    <li>Relative Pitch & Music Theory</li>
+  </ul>
+</article>
+
+
+
+            <article class="about-member reveal">
+  <h3>Sreehari – Developer & Strategic Leader</h3>
+  <p>Sreehari is the definition of a multidisciplinary powerhouse. With hands-on experience in C, Python, and Java, including Object-Oriented Programming, he builds software with precision and purpose. But his skills don’t end at the keyboard—he holds a distinguished post in NCC (National Cadet Corps) and has successfully completed its rigorous training. Known for crafting razor-sharp strategies and adapting swiftly to any challenge, Sreehari is a quick learner with a gift for mastering any domain he sets foot in.</p>
+  <h4>Skills:</h4>
+  <ul class="skills-list">
+    <li>C, Python & Java</li>
+    <li>Object-Oriented Programming (OOPs)</li>
+    <li>NCC Leadership & Discipline</li>
+    <li>Strategic Planning & Execution</li>
+    <li>Adaptability Across Fields</li>
+  </ul>
+</article>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Innovatec Collective. All rights reserved.</p>
+        <div class="social-icons">
+             <a href="#" target="_blank">LinkedIn</a>
+             <a href="#" target="_blank">GitHub</a>
+             <a href="#" target="_blank">Twitter</a>
+        </div>
+    </footer>
+
+    <script>
+        // --- Theme Toggler ---
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            htmlElement.setAttribute('data-theme', savedTheme);
+            themeToggle.textContent = savedTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
+        }
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeToggle.textContent = newTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
+        });
+
+        // --- Scroll Animations ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        const revealElements = document.querySelectorAll('.reveal');
+        revealElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
