@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovatec Collective - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+   <!-- Drop this right after <body> tag -->
+<div class="floating-blob blob1"></div>
+<div class="floating-blob blob2"></div>
+<div class="floating-blob blob3"></div>
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="nav-logo">Innovatec</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" class="btn">Light Mode</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="home-team-photos">
+  <div class="team-member-photo reveal">
+    <img src="images/vedant.jpg" alt="Photo of Vedant Joshi">
+    <span class="member-name">Vedant Joshi</span>
+  </div>
+
+  <div class="team-member-photo reveal">
+    <img src="images/samuel.jpg" alt="Photo of Samuel">
+    <span class="member-name">Samuel</span>
+  </div>
+
+  <div class="team-member-photo reveal">
+  <img src="images/sreehari.jpg" alt="Sreehari – Developer & Strategic Leader">
+
+  <span class="member-name">Sreehari</span>
+</div>
+
+</section>
+
+<!-- Add the following script right before </body> -->
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const revealOnScroll = () => {
+    for (const el of reveals) {
+      const windowHeight = window.innerHeight;
+      const elementTop = el.getBoundingClientRect().top;
+      const elementVisible = 100;
+
+      if (elementTop < windowHeight - elementVisible) {
+        el.classList.add('visible');
+      }
+    }
+  };
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll);
+</script>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Innovatec Collective. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#" target="_blank">LinkedIn</a>
+            <a href="#" target="_blank">GitHub</a>
+            <a href="#" target="_blank">Twitter</a>
+        </div>
+    </footer>
+
+    <script>
+        // --- Theme Toggler ---
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // On page load, check for saved theme in localStorage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            htmlElement.setAttribute('data-theme', savedTheme);
+            themeToggle.textContent = savedTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeToggle.textContent = newTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
+        });
+
+        // --- Scroll Animations ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        const revealElements = document.querySelectorAll('.reveal');
+        revealElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
