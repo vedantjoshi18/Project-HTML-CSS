@@ -1,0 +1,212 @@
+/* Custom CSS for Thematic Branding */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #FDF8F2; /* Creamy background */
+    color: #4A4A4A; /* Dark Gray text */
+}
+
+h1, h2, h3, .nav-link, .modal-title {
+    font-family: 'Playfair Display', serif;
+}
+
+/* --- Custom Colors --- */
+.bg-primary { background-color: #B98C5A !important; } /* Golden Brown */
+.bg-secondary { background-color: #2C3E50 !important; } /* Deep Blue/Charcoal */
+.bg-accent { background-color: #EAE0D5 !important; } /* Light Tan */
+.text-primary { color: #B98C5A !important; }
+.text-secondary { color: #2C3E50 !important; }
+.border-primary { border-color: #B98C5A !important; }
+
+/* --- Header & Navigation --- */
+.header {
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #B98C5A;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+#cart-button {
+    color: white;
+    transition: color 0.3s ease-in-out;
+}
+
+.header.bg-white #cart-button {
+    color: #2C3E50;
+}
+
+.header.bg-white #cart-button:hover {
+    color: #B98C5A;
+}
+
+/* --- Hero Section --- */
+/* --- Hero Section --- */
+.hero {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, transparent 50%), url('../images/hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax effect */
+}
+
+/* --- Section Titles --- */
+.section-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background-color: #B98C5A;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* --- Menu Section --- */
+.menu-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.menu-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.menu-card img {
+    transition: transform 0.4s ease;
+}
+
+.menu-card:hover img {
+    transform: scale(1.1);
+}
+
+/* --- Button & Filter Styles --- */
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+    background-color: #B98C5A;
+    border-color: #B98C5A;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: none !important;
+}
+
+.btn-primary:hover {
+    background-color: #a57c4f;
+    border-color: #a57c4f;
+    transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+    color: #B98C5A;
+    border-color: #B98C5A;
+}
+
+.btn-outline-primary:hover, .btn-outline-primary.active {
+    color: white;
+    background-color: #B98C5A;
+    border-color: #B98C5A;
+}
+
+/* --- Modal Styles --- */
+.modal-content {
+    background-color: #FDF8F2;
+    font-family: 'Roboto', sans-serif;
+}
+.modal-header, .modal-footer {
+    border-color: #EAE0D5;
+}
+
+/* --- Order Tracking --- */
+.tracking-status {
+    color: #aaa;
+    transition: all 0.5s ease;
+}
+
+.tracking-status.active {
+    color: #2C3E50;
+    font-weight: bold;
+}
+
+.tracking-status.active .fa-check-circle {
+    color: #28a745; /* Green checkmark */
+}
+
+/* --- Footer --- */
+.social-icon {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.social-icon:hover {
+    color: #B98C5A;
+    transform: scale(1.2);
+}
+
+/* Fade-in Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Header Text Color Control --- */
+.header h1,
+.header .nav-link,
+.header .md\\:hidden {
+    color: white;
+    transition: color 0.3s ease-in-out;
+}
+
+.header.bg-white h1,
+.header.bg-white .nav-link,
+.header.bg-white .md\\:hidden {
+    color: #2C3E50;
+}
+
+.header.bg-white .nav-link:hover {
+    color: #B98C5A;
+}
+
+/* --- Stacking Context Fix --- */
+#hero, #menu, #about, #contact {
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Hero Outline Button Style --- */
+.btn-hero-outline {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Adds readability */
+    transition: all 0.3s ease;
+}
+
+.btn-hero-outline:hover {
+    background-color: white;
+    color: #2C3E50; /* Dark text color on hover */
+    transform: translateY(-2px);
+}
